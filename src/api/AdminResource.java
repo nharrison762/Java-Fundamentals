@@ -4,10 +4,7 @@ import model.Customer;
 import model.IRoom;
 import serivce.CustomerService;
 import serivce.ReservationService;
-
 import java.util.LinkedList;
-import java.util.Date;
-import java.util.Collection;
 
 public class AdminResource {
 
@@ -25,15 +22,17 @@ public class AdminResource {
     }
 
     public void addRoom(LinkedList<IRoom> rooms){
-        ReservationService.getInstance().addRoom(rooms);
+        for (IRoom r : rooms) {
+            ReservationService.getInstance().addRoom(r);
+        }
     }
 
-    public Collection<IRoom> getAllRooms(){
-        return ReservationService.getInstance().getAllRooms();
+    public void displayAllRooms(){
+        ReservationService.getInstance().getAllRooms();
     }
 
-    public Collection<Customer> getAllCustomers(){
-
+    public void displayAllCustomers(){
+        System.out.println(CustomerService.getInstance().getAllCustomers());
     }
 
     public void displayAllReservations(){

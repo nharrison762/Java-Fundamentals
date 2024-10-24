@@ -1,6 +1,7 @@
 package serivce;
 
 import java.lang.IllegalArgumentException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.LinkedList;
@@ -34,9 +35,19 @@ public class ReservationService {
                 return i;
             }
         }
-        System.out.println("There are no available rooms with that number."); //proofread this
+        System.out.println("There are no available rooms with that number."); //in case the number is not found
         return null;
     }
+
+    //find rooms available for specific dates
+    public Collection<IRoom> findARoom(Date checkIn, Date checkOut) { 
+        LinkedList<IRoom> retRooms = new LinkedList<IRoom>();
+        for (IRoom i :reservationInventory.keySet()) {
+            retRooms.add(i);
+        }
+        return retRooms;
+    }
+    
 
     public Reservation reserveARoom(Customer customer, IRoom room, Date checkInDate, Date checkOutDate) {
         /*
@@ -55,11 +66,6 @@ public class ReservationService {
         return ret;
     }
 
-    public Collection<IRoom> getARoom(Date checkIn, Date checkOut) { //this method was not in the exercise btw
-        //i have no idea how to do this and i hate this project
-        
-    }
-
     public Collection<Reservation> getCustomersReservation(Customer customer) {
         LinkedList<Reservation> ret = new LinkedList<Reservation>();
         //find reservation in collection using customer name
@@ -71,6 +77,16 @@ public class ReservationService {
             }
         }
         return ret;
+    }
+
+    public void getAllRooms(){
+        /*LinkedList<IRoom> retRooms = new LinkedList<IRoom>();
+            for (Map<IRoom> r : reservationInventory.values()) {
+                 retRooms.add(r);
+            }
+            return retRooms;
+        }; This is what I wanted to do BUT java will not cooperate with me >:[ */ 
+        System.out.println(reservationInventory.values());
     }
 
     public void printAllReservation() {

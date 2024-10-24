@@ -1,5 +1,6 @@
 package serivce;
 
+import java.util.Collection;
 import java.util.LinkedList;
 
 import model.Customer;
@@ -30,5 +31,10 @@ public class CustomerService {
             }
         }
         return null;
+    }
+
+    //display all customer accounts
+    public Collection<Customer> getAllCustomers(){
+        return customers;
     }
 }

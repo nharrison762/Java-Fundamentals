@@ -11,4 +11,9 @@ public class FreeRoom extends Room {
         return super.getRoomNumber().toString();
     }
 
+    @Override
+    public String toString() {
+        return this.toString() + "Room information: Room number:" + getRoomNumber() + "\nRoom Price:" + getRoomPrice() + "\nRoom Type:" + getRoomType();
+    }
+
 }

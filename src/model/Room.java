@@ -32,6 +32,11 @@ public class Room implements IRoom {
         return this.isFree();
     }
 
+    @Override
+    public String toString() {
+        return "Room information: Room number:" + getRoomNumber() + "\nRoom Price:" + getRoomPrice() + "\nRoom Type:" + getRoomType();
+    }
+
 }
 
 
